@@ -74,5 +74,8 @@
         "@pika/plugin-build-web"
       ]
     ]
+  },
+  "dependencies": {
+    "@mui/icons-material": "^5.2.0"
   }
 }

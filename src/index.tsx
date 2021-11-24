@@ -2,7 +2,7 @@ import React, {useState, useRef, useImperativeHandle} from 'react'
 import {makeStyles} from '@material-ui/core/styles'
 import Menu, {MenuProps} from '@material-ui/core/Menu'
 import MenuItem, {MenuItemProps} from '@material-ui/core/MenuItem'
-import ArrowRight from '@material-ui/icons/ArrowRight'
+import ArrowRight from '@mui/icons-material/ArrowRight'
 import clsx from 'clsx'
 
 export interface NestedMenuItemProps extends Omit<MenuItemProps, 'button'> {
@@ -174,6 +174,9 @@ const NestedMenuItem = React.forwardRef<
         // Set pointer events to 'none' to prevent the invisible Popover div
         // from capturing events for clicks and hovers
         style={{pointerEvents: 'none'}}
+        PaperProps={{
+          style: { pointerEvents: "auto" }
+        }}
         anchorEl={menuItemRef.current}
         anchorOrigin={{
           vertical: 'top',
@@ -191,7 +194,7 @@ const NestedMenuItem = React.forwardRef<
           setIsSubMenuOpen(false)
         }}
       >
-        <div ref={menuContainerRef} style={{pointerEvents: 'auto'}}>
+        <div ref={menuContainerRef}>
           {children}
         </div>
       </Menu>
