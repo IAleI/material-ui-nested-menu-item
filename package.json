@@ -12,8 +12,16 @@
     "publish": "pika publish",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "version": "npm run build"
+    "version": "npm run build",
+    "library": "tsc -p library.tsconfig.json",
+    "postlibrary": "copyfiles -u 1 -e \"./src/**/*.ts\" -e \"./src/**/*.tsx\" \"./src/**/*.*\" dist"
   },
+  "files": [
+    "dist/lib"
+  ],
+  "main": "./dist/lib/index.tsx",
+  "module": "./dist/lib/index.tsx",
+  "types": "./dist/lib/index.d.ts",
   "keywords": [
     "react",
     "hook",
@@ -27,31 +35,31 @@
   "author": "Adam Zmenak <adam.zmenak@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@material-ui/core": "^4.9.0",
-    "@material-ui/icons": "^4.5.1",
+    "@babel/core": "^7.16.0",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "@pika/pack": "^0.5.0",
-    "@pika/plugin-build-node": "^0.8.1",
-    "@pika/plugin-build-web": "^0.8.1",
-    "@pika/plugin-ts-standard-pkg": "^0.8.1",
-    "@pika/types": "^0.8.1",
-    "@storybook/addon-actions": "^5.3.9",
-    "@storybook/addon-links": "^5.3.9",
-    "@storybook/addons": "^5.3.9",
-    "@storybook/react": "^5.3.9",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/react-hooks": "^3.2.1",
-    "@types/jest": "^24.0.25",
-    "@types/react": "^16.9.17",
-    "babel-loader": "^8.0.6",
-    "clsx": "^1.0.4",
+    "@pika/plugin-build-node": "^0.8.3",
+    "@pika/plugin-build-web": "^0.8.3",
+    "@pika/plugin-ts-standard-pkg": "^0.8.3",
+    "@pika/types": "^0.8.3",
+    "@storybook/addon-actions": "^5.3.21",
+    "@storybook/addon-links": "^5.3.21",
+    "@storybook/addons": "^5.3.21",
+    "@storybook/react": "^5.3.21",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/react-hooks": "^3.7.0",
+    "@types/jest": "^24.9.1",
+    "@types/react": "^16.14.21",
+    "babel-loader": "^8.2.3",
+    "clsx": "^1.1.1",
     "jest": "^24.9.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-test-renderer": "^16.14.0",
     "ts-jest": "^24.3.0",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.7.4"
+    "ts-loader": "^6.2.2",
+    "typescript": "^4.4.3"
   },
   "peerDependencies": {
     "@material-ui/core": "^4.9.0",
@@ -76,6 +84,7 @@
     ]
   },
   "dependencies": {
-    "@mui/icons-material": "^5.2.0"
+    "@mui/icons-material": "^5.2.0",
+    "copyfiles": "^2.4.1"
   }
 }

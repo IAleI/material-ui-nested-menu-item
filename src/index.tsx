@@ -71,7 +71,7 @@ const NestedMenuItem = React.forwardRef<
   const {ref: containerRefProp, ...ContainerProps} = ContainerPropsProp
 
   const menuItemRef = useRef<HTMLLIElement>(null)
-  useImperativeHandle(ref, () => menuItemRef.current)
+  useImperativeHandle(ref, () => menuItemRef.current!)
 
   const containerRef = useRef<HTMLDivElement>(null)
   useImperativeHandle(containerRefProp, () => containerRef.current)
@@ -82,14 +82,12 @@ const NestedMenuItem = React.forwardRef<
 
   const handleMouseEnter = (event: React.MouseEvent<HTMLElement>) => {
     setIsSubMenuOpen(true)
-
     if (ContainerProps?.onMouseEnter) {
       ContainerProps.onMouseEnter(event)
     }
   }
   const handleMouseLeave = (event: React.MouseEvent<HTMLElement>) => {
     setIsSubMenuOpen(false)
-
     if (ContainerProps?.onMouseLeave) {
       ContainerProps.onMouseLeave(event)
     }
